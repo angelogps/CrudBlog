@@ -1,7 +1,38 @@
 <%- include ("partials/header.ejs") %>
+<%- include ("partials/homenavbar.ejs") %>
 
 <body>
-    <h1>te amo vida</h1>
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="display-4">Bem Vindo</h1>
+            <p class="lead">Este é meu primeiro Crud em formato de blog</p>
+            <hr class="my-4">
+            <p>Este é meu primeiro blog em formato de crud, com login e usando nodejs, ejs, mysql e muito mais.  </p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/angelopereira82/" role="button">Leia Mais</a>
+            </p>
+          </div>
+
+        <% articles.forEach(article =>{ %>
+           <div class="card">
+               <div class="card-header">
+                   <h2><%= article.title %></h2>
+               </div>
+               <div class="card-body">
+                   <a href="/<%= article.slug %>" class="btn btn-success">Ler Artigo</a>
+               </div>
+           </div>
+           <br>
+        <% }) %>
+        <div class="row">
+            <div class="col col-12">
+                <a style="float:right" href="/articles/page/2">Next >>> </a>
+                <hr>
+            </div>
+        </div>
+        <hr>
+    </div>
 </body>
 
 <%- include ("partials/footer.ejs") %>
